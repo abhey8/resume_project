@@ -1,0 +1,233 @@
+.back-link {
+  display: inline-block;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+  transition: opacity 0.2s;
+}
+
+.back-link:hover {
+  opacity: 0.8;
+}
+
+.listing-detail {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.listing-images {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.detail-image {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.detail-image:hover {
+  transform: scale(1.05);
+}
+
+.no-image-large {
+  width: 100%;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 6rem;
+  background: linear-gradient(135deg, #e0e7ff 0%, #c7d2fe 100%);
+  border-radius: var(--radius-lg);
+  color: var(--text-secondary);
+}
+
+.listing-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.listing-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.listing-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.listing-actions .btn {
+  white-space: nowrap;
+}
+
+.listing-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.type-badge {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.status-badge {
+  background-color: var(--success-color);
+  color: white;
+  padding: 0.375rem 0.75rem;
+  border-radius: var(--radius);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.listing-info h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.5rem;
+}
+
+.listing-location {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+.listing-price-large {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+}
+
+.listing-specs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+  background-color: var(--bg-color);
+  border-radius: var(--radius);
+}
+
+.spec-item {
+  text-align: center;
+}
+
+.spec-label {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.spec-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.listing-description,
+.listing-amenities,
+.listing-contact {
+  padding: 1.5rem;
+  background-color: var(--bg-color);
+  border-radius: var(--radius);
+}
+
+.listing-description h3,
+.listing-amenities h3,
+.listing-contact h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.listing-description p {
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+.amenities-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.amenity-badge {
+  padding: 0.5rem 1rem;
+  background-color: var(--card-bg);
+  border-radius: var(--radius);
+  font-size: 0.875rem;
+  color: var(--text-primary);
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contact-item {
+  display: flex;
+  gap: 0.5rem;
+  color: var(--text-primary);
+}
+
+.contact-item strong {
+  min-width: 80px;
+}
+
+.contact-item a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 968px) {
+  .listing-detail {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .image-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .listing-header {
+    flex-direction: column;
+  }
+
+  .listing-info h1 {
+    font-size: 1.5rem;
+  }
+
+  .listing-price-large {
+    font-size: 2rem;
+  }
+}
+

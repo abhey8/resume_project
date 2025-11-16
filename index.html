@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Listings - Find Your Dream Property</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <h1 class="logo">🏠 RealEstate Pro</h1>
+                <nav class="nav">
+                    <button class="btn btn-primary" id="addListingBtn">Add Listing</button>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <section class="hero">
+            <div class="container">
+                <h2 class="hero-title">Find Your Dream Property</h2>
+                <p class="hero-subtitle">Browse thousands of properties across India</p>
+            </div>
+        </section>
+
+        <section class="filters">
+            <div class="container">
+                <div class="filters-grid">
+                    <div class="filter-group">
+                        <label for="searchInput">Search</label>
+                        <input type="text" id="searchInput" placeholder="Search by title, city, or address..." class="input">
+                    </div>
+                    <div class="filter-group">
+                        <label for="propertyTypeFilter">Property Type</label>
+                        <select id="propertyTypeFilter" class="select">
+                            <option value="">All Types</option>
+                            <option value="APARTMENT">Apartment</option>
+                            <option value="HOUSE">House</option>
+                            <option value="LAND">Land</option>
+                            <option value="COMMERCIAL">Commercial</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="cityFilter">City</label>
+                        <select id="cityFilter" class="select">
+                            <option value="">All Cities</option>
+                        </select>
+                    </div>
+                    <div class="filter-group">
+                        <label for="minPriceFilter">Min Price (₹)</label>
+                        <input type="number" id="minPriceFilter" placeholder="Min" class="input">
+                    </div>
+                    <div class="filter-group">
+                        <label for="maxPriceFilter">Max Price (₹)</label>
+                        <input type="number" id="maxPriceFilter" placeholder="Max" class="input">
+                    </div>
+                    <div class="filter-group">
+                        <label for="bedroomsFilter">Bedrooms</label>
+                        <select id="bedroomsFilter" class="select">
+                            <option value="">Any</option>
+                            <option value="1">1+</option>
+                            <option value="2">2+</option>
+                            <option value="3">3+</option>
+                            <option value="4">4+</option>
+                        </select>
+                    </div>
+                    <div class="filter-group filter-actions">
+                        <button class="btn btn-secondary" id="clearFiltersBtn">Clear Filters</button>
+                        <button class="btn btn-primary" id="applyFiltersBtn">Apply Filters</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="listings">
+            <div class="container">
+                <div class="listings-header">
+                    <h3 id="listingsCount">Loading listings...</h3>
+                </div>
+                <div id="listingsGrid" class="listings-grid">
+                    <!-- Listings will be loaded here -->
+                </div>
+                <div id="loadingIndicator" class="loading">Loading listings...</div>
+                <div id="noResults" class="no-results" style="display: none;">
+                    <p>No listings found. Try adjusting your filters.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Listing Modal -->
+    <div id="listingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="listingDetails"></div>
+        </div>
+    </div>
+
+    <!-- Add Listing Modal -->
+    <div id="addListingModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Add New Listing</h2>
+            <form id="addListingForm">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="listingTitle">Title *</label>
+                        <input type="text" id="listingTitle" required class="input">
+                    </div>
+                    <div class="form-group">
+                        <label for="listingPropertyType">Property Type *</label>
+                        <select id="listingPropertyType" required class="select">
+                            <option value="">Select...</option>
+                            <option value="APARTMENT">Apartment</option>
+                            <option value="HOUSE">House</option>
+                            <option value="LAND">Land</option>
+                            <option value="COMMERCIAL">Commercial</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="listingPrice">Price (₹) *</label>
+                        <input type="number" id="listingPrice" required class="input" min="0" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label for="listingBedrooms">Bedrooms</label>
+                        <input type="number" id="listingBedrooms" class="input" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="listingBathrooms">Bathrooms</label>
+                        <input type="number" id="listingBathrooms" class="input" min="0">
+                    </div>
+                    <div class="form-group">
+                        <label for="listingArea">Area (sq ft)</label>
+                        <input type="number" id="listingArea" class="input" min="0" step="0.01">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="listingAddress">Address *</label>
+                        <input type="text" id="listingAddress" required class="input">
+                    </div>
+                    <div class="form-group">
+                        <label for="listingCity">City *</label>
+                        <input type="text" id="listingCity" required class="input">
+                    </div>
+                    <div class="form-group">
+                        <label for="listingState">State *</label>
+                        <input type="text" id="listingState" required class="input">
+                    </div>
+                    <div class="form-group">
+                        <label for="listingOwnerId">Owner ID *</label>
+                        <input type="number" id="listingOwnerId" required class="input" min="1">
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="listingDescription">Description</label>
+                        <textarea id="listingDescription" class="textarea" rows="4"></textarea>
+                    </div>
+                    <div class="form-group full-width">
+                        <label for="listingImages">Image URLs (one per line)</label>
+                        <textarea id="listingImages" class="textarea" rows="3" placeholder="https://example.com/image1.jpg&#10;https://example.com/image2.jpg"></textarea>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-secondary" id="cancelAddBtn">Cancel</button>
+                    <button type="submit" class="btn btn-primary">Create Listing</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,12 @@
+module.exports = function (arg) {
+  const envFn = arg && typeof arg.env === "function" ? arg.env : (k) => process.env[k];
+  return {
+    datasource: {
+      provider: "mysql",
+      url: envFn("DATABASE_URL"),
+    },
+    generator: {
+      provider: "prisma-client-js",
+    },
+  };
+};
