@@ -1,9 +1,0 @@
-﻿node.exe : Failed to parse syntax of config file at 
-"C:\Users\your_PC\Desktop\resume_project\prisma.config.js"
-At line:1 char:1
-+ & "C:\Program Files\nodejs/node.exe" "C:\Program Files\nodejs/node_mo ...
-+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : NotSpecified: (Failed to parse...isma.config.j 
-   s":String) [], RemoteException
-    + FullyQualifiedErrorId : NativeCommandError
- 
