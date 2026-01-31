@@ -5,7 +5,7 @@ function ExpenseForm({ addTransaction }) {
 
     const [expenseInfo, setExpenseInfo] = useState({
         amount: '',
-        text: ''
+        title: ''
     })
 
     const handleChange = (e) => {
@@ -17,13 +17,13 @@ function ExpenseForm({ addTransaction }) {
 
     const addExpenses = (e) => {
         e.preventDefault();
-        const { amount, text } = expenseInfo;
-        if (!amount || !text) {
+        const { amount, title } = expenseInfo;
+        if (!amount || !title) {
             handleError('Please add Expense Details');
             return;
         }
         addTransaction(expenseInfo);
-        setExpenseInfo({ amount: '', text: '' })
+        setExpenseInfo({ amount: '', title: '' })
     }
 
     return (
@@ -31,13 +31,13 @@ function ExpenseForm({ addTransaction }) {
             <h1>Expense Tracker</h1>
             <form onSubmit={addExpenses}>
                 <div>
-                    <label htmlFor='text'>Expense Detail</label>
+                    <label htmlFor='title'>Expense Detail</label>
                     <input
                         onChange={handleChange}
                         type='text'
-                        name='text'
+                        name='title'
                         placeholder='Enter your Expense Detail...'
-                        value={expenseInfo.text}
+                        value={expenseInfo.title}
                     />
                 </div>
                 <div>
