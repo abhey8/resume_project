@@ -41,7 +41,7 @@ function Home() {
             const url = `${APIUrl}/expenses/${id}`;
             const headers = {
                 headers: {
-                    'Authorization': localStorage.getItem('token')
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
                 },
                 method: "DELETE"
             }
@@ -65,7 +65,7 @@ function Home() {
             const url = `${APIUrl}/expenses`;
             const headers = {
                 headers: {
-                    'Authorization': localStorage.getItem('token')
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
             }
             const response = await fetch(url, headers);
@@ -89,7 +89,7 @@ function Home() {
             const url = `${APIUrl}/expenses`;
             const headers = {
                 headers: {
-                    'Authorization': localStorage.getItem('token'),
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`,
                     'Content-Type': 'application/json'
                 },
                 method: "POST",

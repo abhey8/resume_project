@@ -9,7 +9,7 @@ const signup = async (req, res) => {
         const user = await UserModel.findOne({ email });
         if (user) {
             return res.status(409)
-                .json({ message: 'User is already exist, you can login', success: false });
+                .json({ message: 'User already exists, you can login', success: false });
         }
         const userModel = new UserModel({ name, email, password });
         userModel.password = await bcrypt.hash(password, 10);
@@ -31,7 +31,7 @@ const signup = async (req, res) => {
 }
 
 
-const login = async (req, res) => {
+const login = async (req, res, next) => {
     try {
         const { email, password } = req.body;
         const user = await UserModel.findOne({ email }).select("+password");
@@ -60,6 +60,7 @@ const login = async (req, res) => {
                 email,
                 name: user.name
             })
+        next()
     } catch (err) {
         console.log(err);
         res.status(500)

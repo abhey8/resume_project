@@ -10,7 +10,7 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   const PrivateRoute = ({ element }) => {
-    return isAuthenticated ? element : <Navigate to="/login" />
+    return isAuthenticated || localStorage.getItem('token') ? element : <Navigate to="/login" />
   }
 
   return (
