@@ -1,0 +1,16 @@
+services:
+  - type: web
+    name: expense-tracker-backend
+    env: node
+    repo: https://github.com/abhey8/resume_project.git
+    branch: main
+    rootDir: Expense-Tracker-proj/backend
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: PORT
+        value: "8080"
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
