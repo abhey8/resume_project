@@ -5,6 +5,7 @@ import { ToastContainer } from 'react-toastify';
 import ExpenseTable from './ExpenseTable';
 import ExpenseDetails from './ExpenseDetails';
 import ExpenseForm from './ExpenseForm';
+import AiInsights from './AiInsights';
 
 function Home() {
     const [loggedInUser, setLoggedInUser] = useState('');
@@ -132,6 +133,9 @@ function Home() {
                 expenses={expenses}
                 deleteExpens={deleteExpens}
             />
+
+            <AiInsights expenses={expenses} />
+
             <ToastContainer />
         </div>
     )
